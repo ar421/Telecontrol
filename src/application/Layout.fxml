@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="1130.0" scaleShape="false" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="239.0" prefWidth="312.0" style="-fx-border-color: black;">
+         <tabs>
+            <Tab closable="false" text="Rotation">
+               <content>
+                  <Pane layoutX="14.0" layoutY="14.0" prefHeight="219.0" prefWidth="310.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label fx:id="rotateXB" alignment="CENTER" layoutX="40.0" layoutY="40.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: pink;" text="X" />
+                        <Label fx:id="rotateYB" alignment="CENTER" layoutX="40.0" layoutY="90.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: cyan;" text="Y" />
+                        <Label fx:id="rotateZB" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="40.0" layoutY="140.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: yellow;" text="Z" textAlignment="CENTER" />
+                        <Label fx:id="rotateXL" alignment="CENTER" layoutX="100.0" layoutY="40.0" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: beige;" />
+                        <Label fx:id="rotateYL" alignment="CENTER" layoutX="100.0" layoutY="90.0" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: beige;" />
+                        <Label fx:id="rotateZL" alignment="CENTER" layoutX="100.0" layoutY="140.0" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: beige;" />
+                        <CheckBox fx:id="rotationCB" layoutX="110.0" layoutY="5.0" mnemonicParsing="false" text="Update?" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Position">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label fx:id="positionYL" alignment="CENTER" layoutX="100.0" layoutY="90.0" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: beige;" />
+                        <Label fx:id="positionXL" alignment="CENTER" layoutX="100.0" layoutY="40.0" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: beige;" />
+                        <Label fx:id="positionZL" alignment="CENTER" layoutX="100.0" layoutY="140.0" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: beige;" />
+                        <Label fx:id="positionZB" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="40.0" layoutY="140.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: yellow;" text="Z" textAlignment="CENTER" />
+                        <Label fx:id="positionYB" alignment="CENTER" layoutX="40.0" layoutY="90.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: cyan;" text="Y" />
+                        <Label fx:id="positionXB" alignment="CENTER" layoutX="40.0" layoutY="40.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: pink;" text="X" />
+                        <CheckBox fx:id="positionCB" layoutX="110.0" layoutY="5.0" mnemonicParsing="false" text="Update?" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Pane layoutX="14.0" layoutY="270.0" prefHeight="378.0" prefWidth="312.0" style="-fx-border-color: black; -fx-background-color: white;">
+         <children>
+            <ProgressBar fx:id="temperaturePB" layoutX="-90.0" layoutY="155.0" prefHeight="20.0" prefWidth="301.0" progress="0.0" rotate="-90.0" />
+            <ProgressBar fx:id="humidityPB" layoutY="155.0" prefHeight="20.0" prefWidth="301.0" progress="0.0" rotate="-90.0" />
+            <ProgressBar fx:id="pressurePB" layoutX="90.0" layoutY="155.0" prefHeight="20.0" prefWidth="301.0" progress="0.0" rotate="-90.0" />
+            <Button fx:id="temperatureB" layoutX="30.0" layoutY="330.0" mnemonicParsing="false" onAction="#pressTemp" prefHeight="40.0" prefWidth="60.0" text="Temp" />
+            <Button fx:id="humidityB" layoutX="120.0" layoutY="330.0" mnemonicParsing="false" onAction="#pressHumi" prefHeight="40.0" prefWidth="60.0" text="Humi" />
+            <Button fx:id="pressureB" layoutX="210.0" layoutY="330.0" mnemonicParsing="false" onAction="#pressPres" prefHeight="40.0" prefWidth="60.0" text="Pres" />
+         </children>
+      </Pane>
+      <GridPane fx:id="grids" layoutX="397.0" layoutY="69.0" prefHeight="372.0" prefWidth="372.0" style="-fx-border-color: black;">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="grid21" onMouseClicked="#color21" prefHeight="58.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid03" onMouseClicked="#color03" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid04" onMouseClicked="#color04" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid02" onMouseClicked="#color02" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid05" onMouseClicked="#color05" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid06" onMouseClicked="#color06" prefHeight="109.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid07" onMouseClicked="#color07" prefHeight="61.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid10" onMouseClicked="#color10" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid12" onMouseClicked="#color12" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid01" onMouseClicked="#color01" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid13" onMouseClicked="#color13" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid14" onMouseClicked="#color14" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid15" onMouseClicked="#color15" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid16" onMouseClicked="#color16" prefHeight="74.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid17" onMouseClicked="#color17" prefHeight="75.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid20" onMouseClicked="#color20" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid22" onMouseClicked="#color22" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid37" onMouseClicked="#color37" prefHeight="87.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid24" onMouseClicked="#color24" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid25" onMouseClicked="#color25" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid26" onMouseClicked="#color26" prefHeight="77.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid27" onMouseClicked="#color27" prefHeight="92.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid30" onMouseClicked="#color30" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid50" onMouseClicked="#color50" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid60" onMouseClicked="#color60" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid70" onMouseClicked="#color70" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid11" onMouseClicked="#color11" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid23" onMouseClicked="#color23" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid31" onMouseClicked="#color31" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid32" onMouseClicked="#color32" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid33" onMouseClicked="#color33" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid34" onMouseClicked="#color34" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid74" onMouseClicked="#color74" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid75" onMouseClicked="#color75" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid61" onMouseClicked="#color61" prefHeight="46.0" prefWidth="99.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid72" onMouseClicked="#color72" prefHeight="130.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid63" onMouseClicked="#color63" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid54" onMouseClicked="#color54" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid65" onMouseClicked="#color65" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid76" onMouseClicked="#color76" prefHeight="112.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid66" onMouseClicked="#color66" prefHeight="85.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid77" onMouseClicked="#color77" prefHeight="116.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid67" onMouseClicked="#color67" prefHeight="88.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid56" onMouseClicked="#color56" prefHeight="118.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid55" onMouseClicked="#color55" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid35" onMouseClicked="#color35" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid47" onMouseClicked="#color47" prefHeight="82.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid40" onMouseClicked="#color40" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid42" onMouseClicked="#color42" prefHeight="76.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid43" onMouseClicked="#color43" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid44" onMouseClicked="#color44" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid45" onMouseClicked="#color45" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid46" onMouseClicked="#color46" prefHeight="106.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid00" onMouseClicked="#color00" prefHeight="47.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid57" onMouseClicked="#color57" prefHeight="62.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="7" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid53" onMouseClicked="#color53" prefHeight="72.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid52" onMouseClicked="#color52" prefHeight="84.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid41" onMouseClicked="#color41" prefHeight="58.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid51" onMouseClicked="#color51" prefHeight="61.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid71" onMouseClicked="#color71" prefHeight="85.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid73" onMouseClicked="#color73" prefHeight="87.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid62" onMouseClicked="#color62" prefHeight="73.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid64" onMouseClicked="#color64" prefHeight="79.0" prefWidth="46.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="grid36" onMouseClicked="#color36" prefHeight="99.0" prefWidth="47.0" style="-fx-border-color: black; -fx-background-color: white; -fx-scale-x: 1px; -fx-scale-y: 1px; -fx-scale-z: 1px;" GridPane.columnIndex="6" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+         </children>
+      </GridPane>
+      <Pane layoutX="847.0" layoutY="104.0" prefHeight="301.0" prefWidth="250.0" style="-fx-border-color: black; -fx-background-color: white;">
+         <children>
+            <Button fx:id="pullB" disable="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#pressPull" prefHeight="83.0" prefWidth="105.0" text="Pull" />
+            <Button fx:id="logB" disable="true" layoutX="131.0" layoutY="14.0" mnemonicParsing="false" onAction="#pressLog" prefHeight="83.0" prefWidth="105.0" text="Log" />
+            <Button fx:id="sendB" disable="true" layoutX="14.0" layoutY="109.0" mnemonicParsing="false" onAction="#pressSend" prefHeight="83.0" prefWidth="105.0" text="Send" />
+            <Button fx:id="updateB" disable="true" layoutX="131.0" layoutY="109.0" mnemonicParsing="false" onAction="#pressUpdate" prefHeight="83.0" prefWidth="105.0" text="Update" />
+            <Button fx:id="connectB" layoutX="14.0" layoutY="203.0" mnemonicParsing="false" onAction="#pressConnect" prefHeight="83.0" prefWidth="105.0" text="Connect" />
+            <Button fx:id="disconnectB" disable="true" layoutX="131.0" layoutY="203.0" mnemonicParsing="false" onAction="#pressDisconnect" prefHeight="83.0" prefWidth="105.0" text="Disconnect" />
+         </children></Pane>
+      <Pane layoutX="513.0" layoutY="480.0" prefHeight="140.0" prefWidth="140.0" style="-fx-border-color: black;">
+         <children>
+            <ColorPicker fx:id="colorP" layoutX="4.0" layoutY="4.0" prefHeight="65.0" prefWidth="133.0" />
+            <Button fx:id="resetB" layoutX="4.0" layoutY="70.0" mnemonicParsing="false" onAction="#pressReset" prefHeight="65.0" prefWidth="133.0" text="Reset" />
+         </children></Pane>
+   </children>
+</AnchorPane>

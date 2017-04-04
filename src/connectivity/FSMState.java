@@ -1,0 +1,5 @@
+package connectivity;
+
+public enum FSMState {
+	CONNECTED, DISCONNECTED, STARTDT, STOPDT, SENDING_I, RECEIVING_I, SENDING_S, RECEIVING_S;
+}
